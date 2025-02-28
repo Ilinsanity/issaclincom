@@ -7,6 +7,7 @@ export default {
         linen: "#F3E9DC",
         caramel: "#C08552",
         navbar: "##C7BEA0",
+        rblack: "#071E22",
       },
       fontFamily: {
         jomhuria: ["Jomhuria", "sans-serif"],
