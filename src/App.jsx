@@ -1,35 +1,71 @@
 import SplitType from "split-type";
 import "./App.css";
-
+import { useRef } from "react";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+gsap.registerPlugin(useGSAP);
 
 function App() {
-  gsap.from(".fname", {
-    x: -120,
-    opacity: 0,
-    duration: 2,
-    ease: "power2.out",
-    delay: 0.5,
-  });
-  gsap.from(".lname", {
-    x: -120,
-    opacity: 0,
-    duration: 2,
-    ease: "power2.out",
-    delay: 0.7,
-  });
-  gsap.from(".pfp", { scale: 0.1, duration: 1, delay: 0.5, opacity: 0 });
-
+  const container = useRef();
   const mytext = new SplitType("#begblu");
   const mtext = new SplitType("#abtmetext");
+  useGSAP(() => {
+    gsap.from(".fname", {
+      x: -120,
+      opacity: 0,
+      duration: 2,
+      ease: "power2.out",
+      delay: 0.5,
+    });
+    gsap.from(".lname", {
+      x: -120,
+      opacity: 0,
+      duration: 2,
+      ease: "power2.out",
+      delay: 0.7,
+    });
+    gsap.from(".pfp", { scale: 0.1, duration: 1, delay: 0.5, opacity: 0 });
 
-  gsap.from("#begblu .char", {
-    y: -100,
-    stagger: 0.05,
-    delay: 0.3,
-    duration: 1,
-    ease: "power4.out",
+    gsap.from("#begblu .char", {
+      y: -100,
+      stagger: 0.05,
+      delay: 0.3,
+      duration: 1,
+      ease: "power4.out",
+    });
+
+    gsap.from("#aboutmenav", {
+      x: -120,
+      opacity: 0,
+      duration: 2,
+      ease: "power2.out",
+      delay: 0.1,
+    });
+
+    gsap.from("#projectsnav", {
+      x: -120,
+      opacity: 0,
+      duration: 2,
+      ease: "power2.out",
+      delay: 0.4,
+    });
+
+    gsap.from("#contactnav", {
+      x: -120,
+      opacity: 0,
+      duration: 2,
+      ease: "power2.out",
+      delay: 0.7,
+    });
+    gsap.from("#eyeL", {
+      x: -120,
+      opacity: 0,
+      duration: 2,
+      ease: "power2.out",
+      delay: 0,
+    });
   });
+
   // gsap.from("#abtmetext .char", {
   //   y: -300,
   //   stagger: 0.01,
@@ -39,26 +75,33 @@ function App() {
   // });
   return (
     <div className=" bg-linen">
-      <nav className="fixed left-4 top-4 flex  items-center ">
-        <a href="#" className="text-caramel text-5xl font-bold font-abz ">
+      <nav className="fixed left-4 top-4 flex items-center ">
+        <a
+          id="eyeL"
+          href="#"
+          className="text-caramel text-5xl font-bold font-abz "
+        >
           il
         </a>
         <div className="flex ml-4">
           <a
+            id="aboutmenav"
             href="#abtme"
-            className="text-caramel text-base font-bold p-2 rounded-lg hover:bg-black  hover:shadow-lg transition-all duration-300"
+            className="text-caramel text-base font-bold p-2 rounded-lg "
           >
             about me
           </a>
           <a
+            id="projectsnav"
             href="#projects"
-            className="text-caramel text-base font-bold p-2 rounded-lg hover:bg-black  hover:shadow-lg transition-all duration-300"
+            className="text-caramel text-base font-bold p-2 rounded-lg "
           >
             projects
           </a>
           <a
+            id="contactnav"
             href="#"
-            className="text-caramel text-base font-bold p-2 rounded-lg hover:bg-black  hover:shadow-lg transition-all duration-300"
+            className="text-caramel text-base font-bold p-2 rounded-lg "
           >
             contact
           </a>
