@@ -37,8 +37,8 @@ function App() {
         digits,
         {
           y: "0%",
-          duration: 1,
-          stagger: 0.075,
+          duration: 0.2,
+          stagger: 0.05,
         },
         index * 1
       );
@@ -48,8 +48,8 @@ function App() {
           digits,
           {
             y: "-100%",
-            duration: 1,
-            stagger: 0.075,
+            duration: 0.2,
+            stagger: 0.05,
           },
           index * 1 + 1
         );
@@ -87,6 +87,22 @@ function App() {
       },
       "<"
     );
+
+    tl.to(".block1", {
+      // clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);",
+      y: "-100%",
+      duration: 1,
+      stagger: 0.1,
+      delay: 0.75,
+      onStart: () =>
+        gsap.to(".hero-img", { scale: 1, duration: 2, ease: "hop" }),
+    });
+
+    tl.to([".nav", ".line h1", ".line p"], {
+      y: "0%",
+      duration: 1.5,
+      stagger: 0.2,
+    });
   });
   // useGSAP(() => {
   //   gsap.from(".fname", {
@@ -184,7 +200,7 @@ function App() {
               <h1 id="dig2">0</h1>
             </div>
           </div>
-          {/* <div className="count">
+          <div className="count">
             <div className="digit">
               <h1>2</h1>
             </div>
@@ -215,28 +231,46 @@ function App() {
             <div className="digit">
               <h1>9</h1>
             </div>
-          </div> */}
+          </div>
         </div>
       </div>
 
-      <div className="container">
+      <div className="container1 w-4/5 h-screen flex justify-center items-center mx-auto">
         <div className="hero-img">
-          <img src="/hero-img.jpg" alt="" />
+          <img src="https://i8.amplience.net/i/naras/NewJeans_ADOR" alt="" />
         </div>
 
         <div className="nav">
           <div className="logo">
-            <a href="#">KindRoot</a>
+            <a href="#">il</a>
           </div>
           <div className="nav-links">
-            <a href="#">Rituals</a>
-            <a href="#">Our Roots</a>
+            <a href="#">About Me</a>
+            <a href="#">Projects</a>
             <a href="#">Lookbook</a>
             <a href="#">Stories</a>
           </div>
           <div className="btn">
             <a href="#"></a>
           </div>
+        </div>
+        <div className="flex flex-col">
+          <p className="text-caramel text-2xl font-mono font-thin" id="begblu">
+            Nice to Meet You, I'm
+          </p>
+          <p className="text-caramel text-11xl font-jomhuria leading-[0.6] m-0 fname">
+            Issac
+          </p>
+          <p className="text-caramel text-11xl font-jomhuria leading-[0.8] m-0 lname">
+            Lin
+          </p>
+        </div>
+        <div className="flex flex-col ml-8">
+          <img
+            src="/src/images/profile.jpg"
+            alt="Description"
+            className="w-80 h-80 object-contain border-8 border-caramel rounded-lg pfp"
+          />
         </div>
       </div>
       {/*<nav className="fixed left-4 top-4 flex items-center ">*/}
@@ -272,55 +306,55 @@ function App() {
       {/*  </div>*/}
       {/*</nav>*/}
 
-      {/*<div className="w-4/5 h-screen flex justify-center items-center mx-auto">*/}
-      {/*  <div className="flex flex-col">*/}
-      {/*    <p className="text-caramel text-2xl font-mono font-thin" id="begblu">*/}
-      {/*      Nice to Meet You, I'm*/}
-      {/*    </p>*/}
-      {/*    <p className="text-caramel text-11xl font-jomhuria leading-[0.6] m-0 fname">*/}
-      {/*      Issac*/}
-      {/*    </p>*/}
-      {/*    <p className="text-caramel text-11xl font-jomhuria leading-[0.8] m-0 lname">*/}
-      {/*      Lin*/}
-      {/*    </p>*/}
-      {/*  </div>*/}
-      {/*  <div className="flex flex-col ml-8">*/}
-      {/*    <img*/}
-      {/*      src="/src/images/profile.jpg"*/}
-      {/*      alt="Description"*/}
-      {/*      className="w-80 h-80 object-contain border-8 border-caramel rounded-lg pfp"*/}
-      {/*    />*/}
-      {/*  </div>*/}
-      {/*</div>*/}
-      {/*<div className="w-9/12 h-screen mx-auto text-center" id="abtme">*/}
-      {/*  <p className="text-caramel text-8xl font-jomhuria py-6">About Me</p>*/}
-      {/*  <p className="text-rblack text-3xl font-mono" id="abtmetext">*/}
-      {/*    Hi, I’m Issac Lin, a passionate web developer who loves turning ideas*/}
-      {/*    into interactive and engaging web experiences. I specialize in*/}
-      {/*    TypeScript, JavaScript, React, and Tailwind CSS, focusing on creating*/}
-      {/*    clean, responsive, and visually appealing designs.*/}
-      {/*    <br /> <br /> I’m currently seeking my first role in tech, eager to*/}
-      {/*    contribute and grow in a collaborative team. Beyond coding, I enjoy*/}
-      {/*    gaming, taking walks, and exploring new music.*/}
-      {/*    <br /> <br /> Let’s connect! Check out my [GitHub] or [LinkedIn] to*/}
-      {/*    see what I’m working on.*/}
-      {/*  </p>*/}
-      {/*</div>*/}
-      {/*<div className="w-9/12 h-screen mx-auto" id="projects">*/}
-      {/*  <p className="text-caramel text-8xl font-jomhuria">Projects</p>*/}
-      {/*  <div className="flex flex-col">*/}
-      {/*    <div className="flex">*/}
-      {/*      <div>*/}
-      {/*        <p className="text-caramel text-2xl font-mono font-thin">*/}
-      {/*          Colour Blind*/}
-      {/*        </p>*/}
-      {/*      </div>*/}
-      {/*      <div></div>*/}
-      {/*    </div>*/}
-      {/*    <div className="">asdasdasdasd</div>*/}
-      {/*    <div className="">asdasdasdasd</div>*/}
-      {/*  </div>*/}
-      {/*</div>*/}
+      {/* <div className="w-4/5 h-screen flex justify-center items-center mx-auto">
+        <div className="flex flex-col">
+          <p className="text-caramel text-2xl font-mono font-thin" id="begblu">
+            Nice to Meet You, I'm
+          </p>
+          <p className="text-caramel text-11xl font-jomhuria leading-[0.6] m-0 fname">
+            Issac
+          </p>
+          <p className="text-caramel text-11xl font-jomhuria leading-[0.8] m-0 lname">
+            Lin
+          </p>
+        </div>
+        <div className="flex flex-col ml-8">
+          <img
+            src="/src/images/profile.jpg"
+            alt="Description"
+            className="w-80 h-80 object-contain border-8 border-caramel rounded-lg pfp"
+          />
+        </div>
+      </div> */}
+      <div className="w-9/12 h-screen mx-auto text-center" id="abtme">
+        <p className="text-caramel text-8xl font-jomhuria py-6">About Me</p>
+        <p className="text-rblack text-3xl font-mono" id="abtmetext">
+          Hi, I’m Issac Lin, a passionate web developer who loves turning ideas
+          into interactive and engaging web experiences. I specialize in
+          TypeScript, JavaScript, React, and Tailwind CSS, focusing on creating
+          clean, responsive, and visually appealing designs.
+          <br /> <br /> I’m currently seeking my first role in tech, eager to
+          contribute and grow in a collaborative team. Beyond coding, I enjoy
+          gaming, taking walks, and exploring new music.
+          <br /> <br /> Let’s connect! Check out my [GitHub] or [LinkedIn] to
+          see what I’m working on.
+        </p>
+      </div>
+      <div className="w-9/12 h-screen mx-auto" id="projects">
+        <p className="text-caramel text-8xl font-jomhuria">Projects</p>
+        <div className="flex flex-col">
+          <div className="flex">
+            <div>
+              <p className="text-caramel text-2xl font-mono font-thin">
+                Colour Blind
+              </p>
+            </div>
+            <div></div>
+          </div>
+          <div className="">asdasdasdasd</div>
+          <div className="">asdasdasdasd</div>
+        </div>
+      </div>
     </div>
   );
 }
