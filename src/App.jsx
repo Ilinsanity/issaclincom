@@ -1,6 +1,6 @@
 import SplitType from "split-type";
 import "./App.css";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import React from "react";
@@ -10,6 +10,9 @@ gsap.registerPlugin(CustomEase);
 CustomEase.create("hop", "0.9,0,0.1,1");
 
 function App() {
+  useEffect(() => {
+    document.querySelector(".loader").classList.remove("hidden");
+  });
   const container = useRef();
   const mytext = new SplitType("#begblu");
   const mtext = new SplitType("#abtmetext");
@@ -90,13 +93,27 @@ function App() {
 
     tl.to(".block1", {
       // clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);",
-      y: "-100%",
+      x: "-100%",
       duration: 1,
-      stagger: 0.1,
+
       delay: 0.75,
-      onStart: () =>
-        gsap.to(".hero-img", { scale: 1, duration: 2, ease: "hop" }),
     });
+
+    tl.to(
+      ".block2",
+      {
+        // clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);",
+        y: "100%",
+        duration: 1,
+
+        delay: 0.05,
+        onStart: () =>
+          gsap.to(".hero-img", { scale: 1, duration: 2, ease: "hop" }),
+        onComplete: () =>
+          document.querySelector(".loader").classList.add("hidden"),
+      },
+      "<"
+    );
 
     tl.to([".nav", ".line h1", ".line p"], {
       y: "0%",
@@ -173,7 +190,7 @@ function App() {
       <div className="loader">
         <div className="overlay">
           <div className="block1"></div>
-          <div className="block1"></div>
+          <div className="block2"></div>
         </div>
         <div className="intro-logo">
           <div className="word" id="word-1">
@@ -245,7 +262,7 @@ function App() {
             <a href="#">il</a>
           </div>
           <div className="nav-links">
-            <a href="#">About Me</a>
+            <a href="#abtme">About Me</a>
             <a href="#">Projects</a>
             <a href="#">Lookbook</a>
             <a href="#">Stories</a>
