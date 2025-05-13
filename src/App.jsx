@@ -40,8 +40,8 @@ function App() {
         digits,
         {
           y: "0%",
-          duration: 0.2,
-          stagger: 0.05,
+          duration: 1,
+          stagger: 0.075,
         },
         index * 1
       );
@@ -51,8 +51,8 @@ function App() {
           digits,
           {
             y: "-100%",
-            duration: 0.2,
-            stagger: 0.05,
+            duration: 1,
+            stagger: 0.075,
           },
           index * 1 + 1
         );
@@ -103,7 +103,7 @@ function App() {
       ".block2",
       {
         // clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);",
-        y: "100%",
+        x: "100%",
         duration: 1,
 
         delay: 0.05,
@@ -114,12 +114,30 @@ function App() {
       },
       "<"
     );
+    tl.from("#begblu .char", {
 
+      y: -100,
+      stagger: 0.05,
+      delay: 0.3,
+      duration: 0.8,
+      ease: "power4.out",
+
+    });
+
+    tl.from([".fname", ".lname"], {
+          x: -600,
+          duration: 0.9,
+          ease: "power2.out",
+          delay: 0.3,
+        });
     tl.to([".nav", ".line h1", ".line p"], {
       y: "0%",
       duration: 1.5,
       stagger: 0.2,
+
     });
+
+
   });
   // useGSAP(() => {
   //   gsap.from(".fname", {
@@ -252,10 +270,10 @@ function App() {
         </div>
       </div>
 
-      <div className="container1 w-4/5 h-screen flex justify-center items-center mx-auto">
-        <div className="hero-img">
-          <img src="https://i8.amplience.net/i/naras/NewJeans_ADOR" alt="" />
-        </div>
+      <div className="container1 bg-linen w-4/5 h-screen flex justify-center items-center mx-auto">
+        {/*<div className="hero-img">*/}
+        {/*  <img src="https://i8.amplience.net/i/naras/NewJeans_ADOR" alt="" />*/}
+        {/*</div>*/}
 
         <div className="nav">
           <div className="logo">
