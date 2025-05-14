@@ -58,7 +58,7 @@ function App() {
         );
       }
     });
-    tl.to(".spinner", { opacity: 0, duration: 0.3 });
+    tl.to(".spinner", { opacity: 0, duration: 0.3 },"<");
     tl.to(
       ".word h1",
       {
@@ -78,7 +78,7 @@ function App() {
     tl.to("#word-1 h1", {
       y: "100%",
       duration: 1,
-      delay: 0.3,
+      delay: 0.1,
     });
 
     tl.to(
@@ -86,7 +86,6 @@ function App() {
       {
         y: "-100%",
         duration: 1,
-        delay: 0.3,
       },
       "<"
     );
@@ -96,7 +95,7 @@ function App() {
       x: "-100%",
       duration: 1,
 
-      delay: 0.75,
+      delay: 0.09,
     });
 
     tl.to(
@@ -105,8 +104,6 @@ function App() {
         // clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);",
         x: "100%",
         duration: 1,
-
-        delay: 0.05,
         onStart: () =>
           gsap.to(".hero-img", { scale: 1, duration: 2, ease: "hop" }),
         onComplete: () =>
@@ -125,17 +122,18 @@ function App() {
     });
 
     tl.from([".fname", ".lname"], {
-          x: -600,
-          duration: 0.9,
+          x: -100,
+      opacity: 0,
+          duration: 0.5,
           ease: "power2.out",
-          delay: 0.3,
+
         });
     tl.to([".nav", ".line h1", ".line p"], {
       y: "0%",
-      duration: 1.5,
+      duration: 1,
       stagger: 0.2,
 
-    });
+    }, "<");
 
 
   });
@@ -280,10 +278,11 @@ function App() {
             <a href="#">il</a>
           </div>
           <div className="nav-links">
+            <a href="#">Home</a>
             <a href="#abtme">About Me</a>
             <a href="#">Projects</a>
-            <a href="#">Lookbook</a>
-            <a href="#">Stories</a>
+
+            <a href="#">Contact</a>
           </div>
           <div className="btn">
             <a href="#"></a>
