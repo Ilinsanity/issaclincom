@@ -5,8 +5,10 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import React from "react";
 import CustomEase from "gsap/CustomEase";
+import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(CustomEase);
+gsap.registerPlugin(ScrollTrigger);
 CustomEase.create("hop", "0.9,0,0.1,1");
 
 function App() {
@@ -25,6 +27,14 @@ function App() {
   const dig1 = document.querySelector("#dig1");
   const dig2 = document.querySelector("#dig2");
   useGSAP(() => {
+
+      gsap.from("#abtmetext", {
+        scrollTrigger: {trigger: "#abtmetext", start: "top center", end: "top 100px", scrub: true, markers: true},
+        scale: 0,
+        ease: "power4.out",
+      });
+
+
     const tl = gsap.timeline({
       delay: 0.3,
       defaults: {
@@ -34,30 +44,30 @@ function App() {
 
     const counts = document.querySelectorAll(".count");
 
-    counts.forEach((count, index) => {
-      const digits = count.querySelectorAll(".digit h1");
-      tl.to(
-        digits,
-        {
-          y: "0%",
-          duration: 1,
-          stagger: 0.075,
-        },
-        index * 1
-      );
-
-      if (index < counts.length) {
-        tl.to(
-          digits,
-          {
-            y: "-100%",
-            duration: 1,
-            stagger: 0.075,
-          },
-          index * 1 + 1
-        );
-      }
-    });
+    // counts.forEach((count, index) => {
+    //   const digits = count.querySelectorAll(".digit h1");
+    //   tl.to(
+    //     digits,
+    //     {
+    //       y: "0%",
+    //       duration: 0.0001, //1
+    //       stagger: 0.002, //0.075
+    //     },
+    //     index * 1
+    //   );
+    //
+    //   if (index < counts.length) {
+    //     tl.to(
+    //       digits,
+    //       {
+    //         y: "-100%",
+    //         duration: 0.0001, //1
+    //         stagger: 0.002, //0.075
+    //       },
+    //       index * 1 + 1
+    //     );
+    //   }
+    // });
     tl.to(".spinner", { opacity: 0, duration: 0.3 },"<");
     tl.to(
       ".word h1",
@@ -360,18 +370,10 @@ function App() {
           />
         </div>
       </div> */}
-      <div className="w-9/12 h-screen mx-auto text-center" id="abtme">
+      <div className="w-9/12 h-screen mx-auto" id="abtme">
         <p className="text-caramel text-8xl font-jomhuria py-6">About Me</p>
-        <p className="text-rblack text-3xl font-mono" id="abtmetext">
-          Hi, I’m Issac Lin, a passionate web developer who loves turning ideas
-          into interactive and engaging web experiences. I specialize in
-          TypeScript, JavaScript, React, and Tailwind CSS, focusing on creating
-          clean, responsive, and visually appealing designs.
-          <br /> <br /> I’m currently seeking my first role in tech, eager to
-          contribute and grow in a collaborative team. Beyond coding, I enjoy
-          gaming, taking walks, and exploring new music.
-          <br /> <br /> Let’s connect! Check out my [GitHub] or [LinkedIn] to
-          see what I’m working on.
+        <p className="text-rblack text-2xl font-mono w-fit" id="abtmetext">
+          Tell Me About Yourself
         </p>
       </div>
       <div className="w-9/12 h-screen mx-auto" id="projects">

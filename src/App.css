@@ -15,10 +15,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: "PP Neue Montreal", sans-serif;
+  scroll-behavior: smooth;
 }
 
 .container1 {
@@ -290,4 +292,13 @@ p {
   .cta {
     width: 90%;
   }
+}
+
+#abtmetext{
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+#abtme{
+
 }
